@@ -8,11 +8,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>Tika & Johan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Tika & Johan Wedding Invitation" />
+	<link rel="icon" type="image/x-icon" href="images/free-heart-icon-431-thumb.png">
 
 	<!-- 
 	//////////////////////////////////////////////////////
@@ -69,15 +68,64 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<style>
+		.pop-up-header-3 {
+			/* "Sacramento", Arial, serif */
+			/* "Brush Script MT", cursive */
+			font-family: Arial, Helvetica, sans-serif;
+			color: #1c3161;
+			font-size: 1.5em !important;
+			font-weight: 800;
+		}
+
+		.pop-up-header-2 {
+			/* "Sacramento", Arial, serif */
+			/* "Brush Script MT", cursive */
+			font-family: "Sacramento", Arial, serif;
+			color: #3c4b6c;
+			font-size: 3.5em;
+			font-weight: 800;
+		}
+
+		.pop-up-header-1 {
+			/* "Sacramento", Arial, serif */
+			/* "Brush Script MT", cursive */
+			font-family: "Sacramento", Arial, serif;
+			color: #3c4b6c;
+			font-size: 5em;
+			font-weight: 1000;
+		}
+
+		.swal2-container {
+			background-size: cover !important;
+			background-position: center -500px !important;
+			/* Default untuk layar yang lebih besar */
+		}
+
+		/* Media query untuk layar dengan lebar maksimal 768px (umumnya untuk perangkat mobile) */
+		@media (max-width: 768px) {
+			.swal2-container {
+				background-position: center center !important;
+				/* Untuk perangkat mobile */
+			}
+
+			.pop-up-header-2 {
+				font-size: 2.5em;
+			}
+
+			.pop-up-header-2 {
+				font-size: 2.5em;
+			}
+		}
+
 		.swal2-popup {
 			background-size: cover;
 			background-position: center;
 		}
 
 		.swal2-custom {
-			background-image: url('./images/gallery-1.jpg') !important;
+			/* background-image: url('./images/tj-01.jpeg') !important; */
 			height: 100% !important;
-			background-size: cover !important;
+			background-size: contain !important;
 			background-repeat: no-repeat !important;
 			background-position: center !important;
 		}
@@ -115,7 +163,7 @@
 
 <body>
 	<audio id="myAudio" loop>
-		<source src="mp3/MALING-ADRIAN-KHALIF.mp3" type="audio/mpeg">
+		<source src="mp3/Nyoman Paul Andi Rianto – The Way You Look At Me.mp3" type="audio/mpeg">
 		Browser Anda tidak mendukung pemutar audio.
 	</audio>
 	<div class="fh5co-loader"></div>
@@ -157,7 +205,7 @@
 			</div>
 		</nav> -->
 
-		<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);"
+		<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/tj-01.jpeg);"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -166,9 +214,9 @@
 						<div class="display-t">
 							<div class="display-tc animate-box" data-animate-effect="fadeIn">
 								<h1>Tika &amp; Johan</h1>
-								<h2>We Are Getting Married</h2>
+								<h2>Mengundang Anda Untuk Merayakan Pernikahan Kami</h2>
 								<div class="simply-countdown simply-countdown-one"></div>
-								<p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
+								<!-- <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p> -->
 							</div>
 						</div>
 					</div>
@@ -180,31 +228,33 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<h2>Hello!</h2>
-						<h3>November 16th, 2024 Cimareme, Bandung Barat</h3>
-						<p>We invited you to celebrate our wedding</p>
+						<h2>Assalamu'alaikum Wr. Wb.</h2>
+						<h3>Kpd Bpk/Ibu/Saudara/i</h3>
+						<h3 style="font-weight: bold; color: #e03c83;" id="invited-guests"></h3>
+						<h3>Bismillahirrahmanirrahim</h3>
+						<p>Tanpa mengurangi rasa hormat. Kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian
+							untuk
+							menghadiri acara resepsi pernikahan kami:</p>
 					</div>
 				</div>
 				<div class="couple-wrap animate-box">
 					<div class="couple-half">
 						<div class="groom">
-							<img src="images/groom.jpg" alt="groom" class="img-responsive">
+							<img src="images/tj-0012.jpeg" alt="groom" class="img-responsive">
 						</div>
 						<div class="desc-groom">
-							<h3>Johan</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts. Separated they live in Bookmarksgrove</p>
+							<h3>Tika</h3>
+							<p>Putri ke-3 dari Bapak (...............) & Ibu (...............)</p>
 						</div>
 					</div>
 					<p class="heart text-center"><i class="icon-heart2"></i></p>
 					<div class="couple-half">
 						<div class="bride">
-							<img src="images/bride.jpg" alt="groom" class="img-responsive">
+							<img src="images/tj-002.jpeg" alt="groom" class="img-responsive">
 						</div>
 						<div class="desc-bride">
-							<h3>Tika</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts. Separated they live in Bookmarksgrove</p>
+							<h3>Johan</h3>
+							<p>Putra ke-(...............) dari Bapak (...............) & Ibu (...............)</p>
 						</div>
 					</div>
 				</div>
@@ -216,7 +266,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<span>Our Special Events</span>
+						<span>Momen Spesial Kami</span>
 						<h2>Wedding Events</h2>
 					</div>
 				</div>
@@ -226,39 +276,41 @@
 							<div class="col-md-10 col-md-offset-1">
 								<div class="col-md-6 col-sm-6 text-center">
 									<div class="event-wrap animate-box">
-										<h3>Main Ceremony</h3>
+										<h3>Akad Nikah</h3>
 										<div class="event-col">
 											<i class="icon-clock"></i>
-											<span>4:00 PM</span>
-											<span>6:00 PM</span>
+											<span>09:00 AM</span>
+											<span>10:00 AM</span>
 										</div>
 										<div class="event-col">
 											<i class="icon-calendar"></i>
-											<span>Monday 28</span>
-											<span>November, 2016</span>
+											<span>Sabtu 16</span>
+											<span>November, 2024</span>
 										</div>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-										</p>
+										<p>Bertempat di Aula HBS Cimareme Kabupaten Bandung Barat.</p>
+
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-6 text-center">
 									<div class="event-wrap animate-box">
-										<h3>Wedding Party</h3>
+										<h3>Resepsi</h3>
 										<div class="event-col">
 											<i class="icon-clock"></i>
-											<span>7:00 PM</span>
-											<span>12:00 AM</span>
+											<span>10:00 AM</span>
+											<span>14:00 AM</span>
 										</div>
 										<div class="event-col">
 											<i class="icon-calendar"></i>
-											<span>Monday 28</span>
-											<span>November, 2016</span>
+											<span>Sabtu 16</span>
+											<span>November, 2024</span>
 										</div>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+
+										<p>
+											<a href="https://maps.app.goo.gl/uwgHHKxbPDkSPJJp9"
+												class="btn btn-default btn-sm">
+												<i class="icon-pin" style="color: #F14E95;"></i>
+												Location
+											</a>
 										</p>
 									</div>
 								</div>
@@ -268,413 +320,246 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div id="fh5co-couple-story">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<span>We Love Each Other</span>
-						<h2>Our Story</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-							there live the blind texts.</p>
-					</div>
+	<div id="fh5co-couple-story">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span>We Love Each Other</span>
+					<h2>Our Story</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+						there live the blind texts.</p>
 				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0">
-						<ul class="timeline animate-box">
-							<li class="animate-box">
-								<div class="timeline-badge" style="background-image:url(images/couple-1.jpg);"></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">First We Meet</h3>
-										<span class="date">December 25, 2015</span>
-									</div>
-									<div class="timeline-body">
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-										</p>
-									</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0">
+					<ul class="timeline animate-box">
+						<li class="animate-box">
+							<div class="timeline-badge" style="background-image:url(images/couple-1.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">First We Meet</h3>
+									<span class="date">December 25, 2015</span>
 								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge" style="background-image:url(images/couple-2.jpg);"></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">First Date</h3>
-										<span class="date">December 28, 2015</span>
-									</div>
-									<div class="timeline-body">
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-										</p>
-									</div>
+								<div class="timeline-body">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and
+										Consonantia, there live the blind texts. Separated they live in
+										Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+									</p>
 								</div>
-							</li>
-							<li class="animate-box">
-								<div class="timeline-badge" style="background-image:url(images/couple-3.jpg);"></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">In A Relationship</h3>
-										<span class="date">January 1, 2016</span>
-									</div>
-									<div class="timeline-body">
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-										</p>
-									</div>
+							</div>
+						</li>
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge" style="background-image:url(images/couple-2.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">First Date</h3>
+									<span class="date">December 28, 2015</span>
 								</div>
-							</li>
-						</ul>
+								<div class="timeline-body">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and
+										Consonantia, there live the blind texts. Separated they live in
+										Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="animate-box">
+							<div class="timeline-badge" style="background-image:url(images/couple-3.jpg);"></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">In A Relationship</h3>
+									<span class="date">January 1, 2016</span>
+								</div>
+								<div class="timeline-body">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and
+										Consonantia, there live the blind texts. Separated they live in
+										Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-gallery" class="fh5co-section-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span>Our Memories</span>
+					<h2>Wedding Gallery</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+						there live the blind texts.</p>
+				</div>
+			</div>
+			<div class="row row-bottom-padded-md">
+				<div class="col-md-12">
+					<ul id="fh5co-gallery-list">
+
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-02.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-07.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-03.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-04.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-05.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+						<li class="one-third animate-box" data-animate-effect="fadeIn"
+							style="background-image: url(images/tj-06.jpeg); ">
+							<a href="#fh5co-gallery" class="color-2">
+								<div class="case-studies-summary">
+									<!-- <span>30 Photos</span>
+										<h2>Timer starts now!</h2> -->
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(images/img_bg_5.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="display-t">
+					<div class="display-tc">
+						<div class=" animate-box">
+							<div class="feature-center">
+								<span class="mt-4">
+									<br>
+									<br>
+									<br>
+									<br>
+									<h4 style="color: white;">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ
+										اَزْوَاجًا
+										لِّتَسْكُنُوْٓا اِلَيْهَا
+										وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ
+										يَّتَفَكَّرُوْنَ
+									</h4>
+									<p style="color: white;">“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia
+										menciptakan
+										pasangan-pasangan untukmu
+										dari
+										jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia
+										menjadikan di
+										antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar
+										terdapat
+										tanda-tanda
+										(kebesaran Allah) bagi kaum yang berpikir. “</p>
+									<p style="color: white;">(Q.S. Ar-Rum : 21)</p>
+								</span>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div id="fh5co-gallery" class="fh5co-section-gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-						<span>Our Memories</span>
-						<h2>Wedding Gallery</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-							there live the blind texts.</p>
-					</div>
+	<div id="fh5co-services" class="fh5co-section-gray">
+		<div class="container">
+
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Wedding Gift</h2>
+					<p>Bagi keluarga, sahabat dan rekan yang ingin memberikan hadiah dapat melalui tautan berikut ini :
+					</p>
 				</div>
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-12">
-						<ul id="fh5co-gallery-list">
+			</div>
 
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-1.jpg); ">
-								<a href="images/gallery-1.jpg">
-									<div class="case-studies-summary">
-										<span>14 Photos</span>
-										<h2>Two Glas of Juice</h2>
-									</div>
-								</a>
-							</li>
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-2.jpg); ">
-								<a href="#" class="color-2">
-									<div class="case-studies-summary">
-										<span>30 Photos</span>
-										<h2>Timer starts now!</h2>
-									</div>
-								</a>
-							</li>
-
-
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-3.jpg); ">
-								<a href="#" class="color-3">
-									<div class="case-studies-summary">
-										<span>90 Photos</span>
-										<h2>Beautiful sunset</h2>
-									</div>
-								</a>
-							</li>
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-4.jpg); ">
-								<a href="#" class="color-4">
-									<div class="case-studies-summary">
-										<span>12 Photos</span>
-										<h2>Company's Conference Room</h2>
-									</div>
-								</a>
-							</li>
-
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-5.jpg); ">
-								<a href="#" class="color-3">
-									<div class="case-studies-summary">
-										<span>50 Photos</span>
-										<h2>Useful baskets</h2>
-									</div>
-								</a>
-							</li>
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-6.jpg); ">
-								<a href="#" class="color-4">
-									<div class="case-studies-summary">
-										<span>45 Photos</span>
-										<h2>Skater man in the road</h2>
-									</div>
-								</a>
-							</li>
-
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-7.jpg); ">
-								<a href="#" class="color-4">
-									<div class="case-studies-summary">
-										<span>35 Photos</span>
-										<h2>Two Glas of Juice</h2>
-									</div>
-								</a>
-							</li>
-
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-8.jpg); ">
-								<a href="#" class="color-5">
-									<div class="case-studies-summary">
-										<span>90 Photos</span>
-										<h2>Timer starts now!</h2>
-									</div>
-								</a>
-							</li>
-							<li class="one-third animate-box" data-animate-effect="fadeIn"
-								style="background-image: url(images/gallery-9.jpg); ">
-								<a href="#" class="color-6">
-									<div class="case-studies-summary">
-										<span>56 Photos</span>
-										<h2>Beautiful sunset</h2>
-									</div>
-								</a>
-							</li>
-						</ul>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading ">
+					<div class="card animate-box " data-animate-effect="fadeInLeft">
+						<img src="images/logo-bca.png" alt="bca" class="mb-2" width="200px" class="img-responsive">
+						<div class="">
+							<br>
+							<h3>(.................)</h3>
+							<p>a.n (.................)</p>
+						</div>
+					</div>
+					<div class="card animate-box " data-animate-effect="fadeInLeft">
+						<img src="images/logo-bri.png" alt="bca" class="mb-2" width="200px" class="img-responsive">
+						<div class="">
+							<br>
+							<h3>(.................)</h3>
+							<p>a.n (.................)</p>
+						</div>
 					</div>
 				</div>
 			</div>
+
+
 		</div>
+	</div>
 
-		<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(images/img_bg_5.jpg);">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="display-t">
-						<div class="display-tc">
-							<div class="col-md-3 col-sm-6 animate-box">
-								<div class="feature-center">
-									<span class="icon">
-										<i class="icon-users"></i>
-									</span>
 
-									<span class="counter js-counter" data-from="0" data-to="500" data-speed="5000"
-										data-refresh-interval="50">1</span>
-									<span class="counter-label">Estimated Guest</span>
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
 
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-6 animate-box">
-								<div class="feature-center">
-									<span class="icon">
-										<i class="icon-user"></i>
-									</span>
-
-									<span class="counter js-counter" data-from="0" data-to="1000" data-speed="5000"
-										data-refresh-interval="50">1</span>
-									<span class="counter-label">We Catter</span>
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-6 animate-box">
-								<div class="feature-center">
-									<span class="icon">
-										<i class="icon-calendar"></i>
-									</span>
-									<span class="counter js-counter" data-from="0" data-to="402" data-speed="5000"
-										data-refresh-interval="50">1</span>
-									<span class="counter-label">Events Done</span>
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-6 animate-box">
-								<div class="feature-center">
-									<span class="icon">
-										<i class="icon-clock"></i>
-									</span>
-
-									<span class="counter js-counter" data-from="0" data-to="2345" data-speed="5000"
-										data-refresh-interval="50">1</span>
-									<span class="counter-label">Hours Spent</span>
-
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a>
+							Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+					</p>
+					<p>
+					<ul class="fh5co-social-icons">
+						<li><a href="#"><i class="icon-twitter"></i></a></li>
+						<li><a href="#"><i class="icon-facebook"></i></a></li>
+						<li><a href="#"><i class="icon-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon-dribbble"></i></a></li>
+					</ul>
+					</p>
 				</div>
 			</div>
+
 		</div>
-
-		<div id="fh5co-testimonial">
-			<div class="container">
-				<div class="row">
-					<div class="row animate-box">
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<span>Best Wishes</span>
-							<h2>Friends Wishes</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box">
-							<div class="wrap-testimony">
-								<div class="owl-carousel-fullwidth">
-									<div class="item">
-										<div class="testimony-slide active text-center">
-											<figure>
-												<img src="images/couple-1.jpg" alt="user">
-											</figure>
-											<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-											<blockquote>
-												<p>"Far far away, behind the word mountains, far from the countries
-													Vokalia and Consonantia, there live the blind texts. Separated they
-													live in Bookmarksgrove right at the coast of the Semantics"</p>
-											</blockquote>
-										</div>
-									</div>
-									<div class="item">
-										<div class="testimony-slide active text-center">
-											<figure>
-												<img src="images/couple-2.jpg" alt="user">
-											</figure>
-											<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-											<blockquote>
-												<p>"Far far away, behind the word mountains, far from the countries
-													Vokalia and Consonantia, at the coast of the Semantics, a large
-													language ocean."</p>
-											</blockquote>
-										</div>
-									</div>
-									<div class="item">
-										<div class="testimony-slide active text-center">
-											<figure>
-												<img src="images/couple-3.jpg" alt="user">
-											</figure>
-											<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-											<blockquote>
-												<p>"Far far away, far from the countries Vokalia and Consonantia, there
-													live the blind texts. Separated they live in Bookmarksgrove right at
-													the coast of the Semantics, a large language ocean."</p>
-											</blockquote>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="fh5co-services" class="fh5co-section-gray">
-			<div class="container">
-
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>We Offer Services</h2>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-							provident. Odit ab aliquam dolor eius.</p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6">
-						<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-							<span class="icon">
-								<i class="icon-calendar"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>We Organized Events</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos
-									cumque dicta adipisci architecto culpa amet.</p>
-							</div>
-						</div>
-
-						<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-							<span class="icon">
-								<i class="icon-image"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Photoshoot</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos
-									cumque dicta adipisci architecto culpa amet.</p>
-							</div>
-						</div>
-
-						<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-							<span class="icon">
-								<i class="icon-video"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Video Editing</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos
-									cumque dicta adipisci architecto culpa amet.</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="col-md-6 animate-box">
-						<div class="fh5co-video fh5co-bg" style="background-image: url(images/img_bg_3.jpg); ">
-							<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i
-									class="icon-video2"></i></a>
-							<div class="overlay"></div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-
-
-		<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Are You Attending?</h2>
-						<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
-					</div>
-				</div>
-				<div class="row animate-box">
-					<div class="col-md-10 col-md-offset-1">
-						<form class="form-inline">
-							<div class="col-md-4 col-sm-4">
-								<div class="form-group">
-									<label for="name" class="sr-only">Name</label>
-									<input type="name" class="form-control" id="name" placeholder="Name">
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="form-group">
-									<label for="email" class="sr-only">Email</label>
-									<input type="email" class="form-control" id="email" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<button type="submit" class="btn btn-default btn-block">I am Attending</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<footer id="fh5co-footer" role="contentinfo">
-			<div class="container">
-
-				<div class="row copyright">
-					<div class="col-md-12 text-center">
-						<p>
-							<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-							<small class="block">Designed by <a href="http://freehtml5.co/"
-									target="_blank">FREEHTML5.co</a> Demo Images: <a href="http://unsplash.co/"
-									target="_blank">Unsplash</a></small>
-						</p>
-						<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-						</p>
-					</div>
-				</div>
-
-			</div>
-		</footer>
+	</footer>
 	</div>
 
 	<div class="gototop js-top">
@@ -708,15 +593,32 @@
 	<script src="js/main.js"></script>
 
 	<script>
+		function getQueryParam(param) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(param);
+		}
+
+		const heading = document.getElementById('invited-guests');
+		if (heading) {
+			heading.textContent = getQueryParam("to"); // Atau gunakan innerHTML jika ingin memuat HTML
+		}
+
 		Swal.fire({
 			// imageUrl: `./images/img_bg_1.jpg`,
+			html: `<h2 class="pop-up-header-2">Undangan Pernikahan</h2>
+								<h1 class="pop-up-header-1">Tika &amp; Johan</h1>
+<br>
+								<h2 class="pop-up-header-3">Kepada : `+ getQueryParam("to") + `</h2>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			`,
 			confirmButtonText: `<i class="fa fa-envelope"></i>`,
 			confirmButtonColor: "#F14E95",
 			width: "100%",
 			height: "200%",
 			padding: "3em",
 			color: "#716add",
-			background: "rgb(184 184 255 / 40%)",
+			background: "rgb(184 184 255 / 0%)",
 			customClass: {
 				popup: 'swal2-custom',
 				confirmButton: 'swal2-circular-button'
@@ -726,13 +628,9 @@
 				if (audio.paused) {
 					audio.play();
 				}
-			}
-			// 			backdrop: `
-			//     rgba(0,0,123,0.4)
-			//     url("/images/nyan-cat.gif")
-			//     left top
-			//     no-repeat
-			//   `
+			},
+			backdrop: `url("images/tj-04.jpeg")`,
+			position: "top"
 		});
 	</script>
 
