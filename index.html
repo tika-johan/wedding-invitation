@@ -64,16 +64,36 @@
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<style>
+		.montserrat-123 {
+			font-family: "Lobster", sans-serif !important;
+			color: #d3d9e7;
+			padding-top: 10px;
+			font-size: medium;
+			font-style: normal;
+		}
+
+		.to-container {
+			margin-top: 20px;
+			border-radius: 12px;
+			min-height: 85px;
+			background-color: rgb(60 75 108 / 59%);
+		}
+
 		.pop-up-header-3 {
 			/* "Sacramento", Arial, serif */
 			/* "Brush Script MT", cursive */
 			font-family: Arial, Helvetica, sans-serif;
-			color: #1c3161;
-			font-size: 1.5em !important;
+			color: #4a6197;
+			font-size: 1.2em !important;
 			font-weight: 800;
 		}
 
@@ -91,7 +111,7 @@
 			/* "Brush Script MT", cursive */
 			font-family: "Sacramento", Arial, serif;
 			color: #3c4b6c;
-			font-size: 5em;
+			font-size: 4em;
 			font-weight: 1000;
 		}
 
@@ -605,11 +625,25 @@
 		}
 
 		Swal.fire({
-			// imageUrl: `./images/img_bg_1.jpg`,
+			// imageUrl: `./images/img_bg_1.jpg`, Kepada Bapak/Ibu/Saudara/i
 			html: `<h2 class="pop-up-header-2">Undangan Pernikahan</h2>
 					<h1 class="pop-up-header-1">Tika &amp; Johan</h1>
 					<br>
-					<h2 class="pop-up-header-3">Kepada : `+ getQueryParam("to") + `</h2>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="to-container">
+						<h2 class="montserrat-123">Kepada Bapak/Ibu/Saudara/i : </h2>
+						<h2 class="montserrat-123">`+ getQueryParam("to") + `</h2>
+					</div>
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			`,
 			confirmButtonText: `BUKA UNDANGAN`,

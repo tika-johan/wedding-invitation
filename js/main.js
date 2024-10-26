@@ -185,7 +185,9 @@
 
 	// Loading page
 	var loaderPage = function () {
-		$(".fh5co-loader").fadeOut("slow");
+		setTimeout(() => {
+			$(".fh5co-loader").fadeOut("slow");
+		}, 1200);
 	};
 
 	var counter = function () {
