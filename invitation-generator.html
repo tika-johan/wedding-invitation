@@ -128,31 +128,6 @@
                     <div class="col-xs-2">
                         <div id="fh5co-logo"><a href="index.html">Wedding<strong>.</strong></a></div>
                     </div>
-                    <div class="col-xs-10 text-right menu-1">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">Story</a></li>
-                            <li class="has-dropdown">
-                                <a href="services.html">Services</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">eCommerce</a></li>
-                                    <li><a href="#">Branding</a></li>
-                                    <li><a href="#">API</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="gallery.html">Gallery</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">HTML5</a></li>
-                                    <li><a href="#">CSS3</a></li>
-                                    <li><a href="#">Sass</a></li>
-                                    <li><a href="#">jQuery</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
                 </div>
 
             </div>
@@ -179,15 +154,9 @@
 
         <div class="fh5co-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-push-6 animate-box fh5co-section-gray">
-                        <br>
-                        <h3>Contoh Tampilan Pesan</h3>
 
-                        <div id="exampleMessageView">Example</div>
-                        <br>
-                    </div>
-                    <div class="col-md-6 col-md-push-6 animate-box">
+                <div class="row">
+                    <div class="col-md-12   animate-box">
                         <br>
                         <h3>Input Template Pesan Undangan</h3>
                         <h5>Jangan hapus ya {{NamaTamuUndangan}} dan {{URL}}</h5>
@@ -206,7 +175,9 @@
                         </form>
                         <br>
                     </div>
-                    <div class="col-md-6 col-md-push-6 animate-box fh5co-section-gray">
+                </div>
+                <div class="row">
+                    <div class="col-md-12   animate-box fh5co-section-gray">
                         <br>
                         <h3>Input Tamu Undangan</h3>
                         <h5>Pisahkan nama tamu 1 dan tamu 2 dengan enter ya</h5>
@@ -225,7 +196,9 @@
                         </form>
                         <br>
                     </div>
-                    <div class="col-md-5 col-md-pull-5 animate-box">
+                </div>
+                <div class="row">
+                    <div class="col-md-12   animate-box animate-box">
                         <br>
                         <h3>Daftar Tamu Undangan</h3>
                         <table class="table">
@@ -319,7 +292,7 @@
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-        import { update, getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+        import { update, remove, getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
 
         // TODO: Add SDKs for Firebase products that you want to use
@@ -361,6 +334,7 @@ Terima kasih atas perhatian dan doa restunya.
 Wassalamu'alaikum Warahmatullahi Wabarakatuh.
 
 💖 Tika & Johan 💖`
+        var totalReceivers = 0
 
         const messageBox = document.getElementById("messageBox");
         const receiversBox = document.getElementById("receiversBox");
@@ -371,7 +345,6 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
 
         document.getElementById("btnSaveMessageBox").addEventListener("click", saveMessageBox);
         document.getElementById("btnReceiversBox").addEventListener("click", saveReceiversBox);
-        document.getElementById("btnReceiversBox").addEventListener("click", copyToClipboard);
 
         var objMessageBox = { message: "" }
         var objReceiversBox = { name: "" }
@@ -391,25 +364,65 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
         }
 
         function saveReceiversBox() {
+            if (receiversBox.value.trim() != "") {
 
-            var receiverList = receiversBox.value.split("\n");
-            const updates = {}
-            console.log({ receiverList })
-            receiverList.forEach(element => {
+                var receiverList = receiversBox.value.split("\n");
+                const updates = {}
+                console.log({ receiverList })
+                receiverList.forEach(element => {
 
-                console.log({ element })
-                updates[keyReceiverBox + "/" + generateRandomString()] = { name: element };
-            });
+                    console.log({ element })
+                    updates[keyReceiverBox + "/" + generateRandomString()] = { name: element };
 
-            update(ref(db), updates)
+
+                    totalReceivers++
+                    var htmlItems = `    <tr>
+                                    <td>`+ totalReceivers + `</td>
+                                    <td>`+ element + `</td>
+                                    <td>
+                                        <input type="button" value="Copy" onclick="copyToClipboard(generateMessage('`+ element + `'))" class="btn btn-sm btn-primary">
+                                    </td>
+                                </tr>`;
+
+                    const bodyTable = document.getElementById("bodyTable");
+
+                    bodyTable.innerHTML += htmlItems
+                });
+
+                update(ref(db), updates)
+                    .then(() => {
+                        console.log("Data berhasil disimpan!");
+                    })
+                    .catch((error) => {
+                        console.error("Error menyimpan data:", error);
+                    });
+
+            }
+        }
+
+        function removeReceiverBoxModule(id) {
+            console.log("removeReceiverBoxModule  :=>")
+            const receiverRef = ref(db, keyReceiverBox + '/' + id); // Ganti 'users/userId' dengan path yang sesuai
+
+            // Menghapus data
+            remove(receiverRef)
                 .then(() => {
-                    console.log("Data berhasil disimpan!");
+                    console.log("Data berhasil dihapus!");
+
+                    totalReceivers = 0
+
+                    const bodyTable = document.getElementById("bodyTable");
+
+                    bodyTable.innerHTML = ""
+                    getReceivers()
                 })
                 .catch((error) => {
-                    console.error("Error menyimpan data:", error);
+                    console.error("Gagal menghapus data:", error);
                 });
 
         }
+
+        window.removeReceiverBoxModule = removeReceiverBoxModule;
 
         function generateRandomString() {
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -440,7 +453,6 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
 
         }
 
-        var totalReceivers = 0
 
         function getReceivers() {
             const dbRef = ref(db, keyReceiverBox);
@@ -457,6 +469,7 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
                                     <td>`+ element.name + `</td>
                                     <td>
                                         <input type="button" value="Copy" onclick="copyToClipboard(generateMessage('`+ element.name + `'))" class="btn btn-sm btn-primary">
+                                        <input type="button" value="Delete" onclick="removeReceiverBox('`+ key + `')" class="btn btn-sm btn-danger">
                                     </td>
                                 </tr>`;
 
@@ -483,6 +496,7 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
             getMessageBox();
             getReceivers();
         });
+
     </script>
     <script>
 
@@ -517,6 +531,13 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
             setTimeout(function () {
                 toast.className = toast.className.replace("show", "");
             }, 2000); // Toast hilang setelah 4 detik
+        }
+
+        function removeReceiverBox(id) {
+            console.log("removeReceiverBox  :=>")
+            if (window.removeReceiverBoxModule) {
+                window.removeReceiverBoxModule(id)
+            }
         }
     </script>
 </body>
