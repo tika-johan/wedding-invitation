@@ -646,13 +646,14 @@
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="name" class="sr-only">Nama</label>
-								<input type="name" class="form-control" id="prayName" placeholder="Nama">
+								<input required type="name" class="form-control" id="prayName" placeholder="Nama">
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="email" class="sr-only">Ucapan</label>
-								<input style="height: 100px;" class="form-control" id="prayText" placeholder="Ucapan">
+								<input required style="min-height: 150px;" class="form-control" id="prayText"
+									placeholder="Ucapan">
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
@@ -854,24 +855,28 @@
 
 			const prayName = document.getElementById("prayName");
 			const prayText = document.getElementById("prayText");
+
 			objPray.name = prayName.value;
 			objPray.pray = prayText.value;
 
-			console.log({ objPray })
+			if (objPray.name.trim() != "" && objPray.pray.trim() != "") {
 
-			set(ref(db, keyPray + "/" + generateRandomString()), objPray).then(() => {
-				console.log("Data berhasil disimpan!");
-			}).catch((error) => {
-				console.error("Error menyimpan data: ", error);
-			});
-			prayName.value = "";
-			prayText.value = "";
+				console.log({ objPray })
 
-			var htmlItems = `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + objPray.name + `</span><blockquote><p>"` + objPray.pray + `"</p></blockquote></div></div>`;
-			const prayParent = document.getElementById("prayParent");
+				set(ref(db, keyPray + "/" + generateRandomString()), objPray).then(() => {
+					console.log("Data berhasil disimpan!");
+				}).catch((error) => {
+					console.error("Error menyimpan data: ", error);
+				});
+				prayName.value = "";
+				prayText.value = "";
 
-			prayParent.innerHTML += htmlItems
+				var htmlItems = `<div class="item"><br><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + objPray.name + `</span><blockquote><p>"` + objPray.pray + `"</p></blockquote></div></div>`;
+				const prayParent = document.getElementById("prayParent");
 
+				prayParent.innerHTML += htmlItems
+
+			}
 		}
 
 		function getIconLove() {
@@ -890,7 +895,7 @@
 						for (const key in snapshot.val()) {
 							if (Object.prototype.hasOwnProperty.call(snapshot.val(), key)) {
 								const element = snapshot.val()[key];
-								htmlItems += `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
+								htmlItems += `<div class="item"><br><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
 
 							}
 						}
