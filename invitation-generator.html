@@ -367,6 +367,7 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
             if (receiversBox.value.trim() != "") {
 
                 var receiverList = receiversBox.value.split("\n");
+                receiversBox.value = ""
                 const updates = {}
                 console.log({ receiverList })
                 receiverList.forEach(element => {
