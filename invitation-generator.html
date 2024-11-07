@@ -203,23 +203,11 @@
                             <thead>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Pesan</th>
+                                <th>Action</th>
+                                <th>Created At</th>
                             </thead>
                             <tbody id="bodyTable">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Binar</td>
-                                    <td>
-                                        <input type="button" value="Save" class="btn btn-sm btn-primary">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Binar</td>
-                                    <td>
-                                        <input type="button" value="Save" class="btn btn-sm btn-primary">
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                         <br>
@@ -292,6 +280,7 @@
         import { update, remove, getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
 
+
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -360,6 +349,20 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
             });
         }
 
+        function formattedDate(params) {
+            const date = new Date(params);
+
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Menambahkan 1 karena bulan dimulai dari 0
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            return formattedDate
+        }
+
         function saveReceiversBox() {
             if (receiversBox.value.trim() != "") {
 
@@ -369,7 +372,9 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
                 receiverList.forEach(element => {
 
                     console.log({ element })
-                    updates[keyReceiverBox + "/" + generateRandomString()] = { name: element };
+                    const timestampNow = Date.now();
+                    var key = generateRandomString()
+                    updates[keyReceiverBox + "/" + key] = { name: element, createdAt: timestampNow };
 
 
                     totalReceivers++
@@ -378,12 +383,15 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
                                     <td>`+ element + `</td>
                                     <td>
                                         <input type="button" value="Copy" onclick="copyToClipboard(generateMessage('`+ element + `'))" class="btn btn-sm btn-primary">
+                                        <input type="button" value="Delete" onclick="removeReceiverBox('`+ key + `')" class="btn btn-sm btn-danger">
                                     </td>
+                                    <td>`+ formattedDate(timestampNow) + `</td>
+
                                 </tr>`;
 
                     const bodyTable = document.getElementById("bodyTable");
 
-                    bodyTable.innerHTML += htmlItems
+                    bodyTable.innerHTML += bodyTable.innerHTML
                 });
 
                 update(ref(db), updates)
@@ -457,21 +465,29 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh.
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         var htmlItems = ""
+                        var prays = []
+
                         for (const key in snapshot.val()) {
                             if (Object.prototype.hasOwnProperty.call(snapshot.val(), key)) {
                                 const element = snapshot.val()[key];
-                                totalReceivers++
-                                htmlItems += `    <tr>
+                                prays.push({ ...element, key })
+                            }
+                        }
+                        prays.sort((a, b) => b.createdAt - a.createdAt);
+                        prays.forEach((element) => {
+                            totalReceivers++
+                            var createdAt = formattedDate(element.createdAt)
+
+                            htmlItems += `    <tr>
                                     <td>`+ totalReceivers + `</td>
                                     <td>`+ element.name + `</td>
                                     <td>
                                         <input type="button" value="Copy" onclick="copyToClipboard(generateMessage('`+ element.name + `'))" class="btn btn-sm btn-primary">
-                                        <input type="button" value="Delete" onclick="removeReceiverBox('`+ key + `')" class="btn btn-sm btn-danger">
+                                        <input type="button" value="Delete" onclick="removeReceiverBox('`+ element.key + `')" class="btn btn-sm btn-danger">
                                     </td>
+                                    <td>`+ createdAt + `</td>
                                 </tr>`;
-
-                            }
-                        }
+                        });
                         const bodyTable = document.getElementById("bodyTable");
 
                         bodyTable.innerHTML = htmlItems
