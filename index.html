@@ -69,6 +69,10 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+
+
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
@@ -185,6 +189,37 @@
 		.swal2-circular-button:hover {
 			background-color: #45a049;
 			/* Warna saat di-hover */
+		}
+
+		/* Wrapper dengan overflow scroll */
+		.scroll-box {
+			max-height: 400px;
+			overflow-y: auto;
+			background-color: #f9f9f9;
+		}
+
+		/* Warna dan ukuran scrollbar */
+		.scroll-box::-webkit-scrollbar {
+			width: 8px;
+			/* Lebar scrollbar */
+		}
+
+		/* Background track scrollbar */
+		.scroll-box::-webkit-scrollbar-track {
+			background: #e0e0e0;
+			border-radius: 10px;
+		}
+
+		/* Gaya thumb scrollbar */
+		.scroll-box::-webkit-scrollbar-thumb {
+			background: linear-gradient(180deg, #ffdbeb, #ffbad8);
+			/* Warna gradien */
+			border-radius: 10px;
+		}
+
+		/* Hover effect pada thumb scrollbar */
+		.scroll-box::-webkit-scrollbar-thumb:hover {
+			background: linear-gradient(180deg, #ffbad8, #e03c83);
 		}
 	</style>
 
@@ -556,6 +591,61 @@
 		</div>
 	</div>
 
+	<div id="fh5co-testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<span>Best Wishes</span>
+						<h2>Friends Wishes</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="wrap-testimony">
+							<div class="owl-carousel-fullwidth scroll-box" id="prayParent">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/tj-12.jpeg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Ucapan Selamat & Do'a</h2>
+					<p>Berikan Ucapan Terbaik Untuk kedua Mempelai</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="col-md-10 col-md-offset-1">
+					<form class="form-inline">
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="name" class="sr-only">Nama</label>
+								<input type="name" class="form-control" id="prayName" placeholder="Nama">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="email" class="sr-only">Ucapan</label>
+								<input style="height: 100px;" class="form-control" id="prayText" placeholder="Ucapan">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<button id="saveNewPray" type="button" class="btn btn-default btn-block">Simpan</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<div id="fh5co-services" class="fh5co-section-gray">
 		<div class="container">
 
@@ -583,8 +673,6 @@
 
 		</div>
 	</div>
-
-
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 
@@ -720,6 +808,113 @@
 		// 		audio.play();
 		// 	}
 		// });
+	</script>
+
+	<script type="module">
+
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+		import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyDYwJNUw6jN8tgUBBlsaKv3Ontgn88hhek",
+			authDomain: "tika-johan.firebaseapp.com",
+			projectId: "tika-johan",
+			storageBucket: "tika-johan.firebasestorage.app",
+			messagingSenderId: "14981637064",
+			appId: "1:14981637064:web:3fb2a9a4d8b414c92f16fd",
+			measurementId: "G-MD6MW9W6EH"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		// const analytics = firebase.getAnalytics(app);
+		const db = getDatabase(app);
+
+		const keyPray = "pray"
+		const objPray = {
+			name: "",
+			pray: ""
+		}
+		document.getElementById("saveNewPray").addEventListener("click", savePray);
+
+		// Fungsi untuk menyimpan data
+		function savePray() {
+
+			const prayName = document.getElementById("prayName");
+			const prayText = document.getElementById("prayText");
+			objPray.name = prayName.value;
+			objPray.pray = prayText.value;
+
+			console.log({ objPray })
+
+			set(ref(db, keyPray + "/" + generateRandomString()), objPray).then(() => {
+				console.log("Data berhasil disimpan!");
+			}).catch((error) => {
+				console.error("Error menyimpan data: ", error);
+			});
+			prayName.value = "";
+			prayText.value = "";
+
+			var htmlItems = `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/couple-1.jpg" alt="user"></figure><span>` + objPray.name + `</span><blockquote><p>"` + objPray.pray + `"</p></blockquote></div></div>`;
+			const prayParent = document.getElementById("prayParent");
+
+			prayParent.innerHTML += htmlItems
+
+		}
+
+		// Fungsi untuk mengambil data
+		function getPray() {
+			const dbRef = ref(db, keyPray);
+			get(dbRef)
+				.then((snapshot) => {
+					if (snapshot.exists()) {
+						var htmlItems = ""
+						for (const key in snapshot.val()) {
+							if (Object.prototype.hasOwnProperty.call(snapshot.val(), key)) {
+								const element = snapshot.val()[key];
+								// 			<div class="row" id="prayParent">
+								// <div class="col-md-12 animate-box">
+								// 	<div class="wrap-testimony">
+								// 		<div class="owl-carousel-fullwidth">
+								// 			<div class="item">
+								htmlItems += `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/couple-1.jpg" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
+
+							}
+						}
+						const prayParent = document.getElementById("prayParent");
+
+						prayParent.innerHTML = htmlItems
+						// console.log("Data users:", snapshot.val()); // Menampilkan semua data di node 'users'
+					} else {
+						console.log("Tidak ada data di path " + keyPray);
+					}
+				})
+				.catch((error) => {
+					console.error("Error mengambil data:", error);
+				});
+
+		}
+
+		function generateRandomString() {
+			const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			let result = '';
+			for (let i = 0; i < 8; i++) {
+				result += chars.charAt(Math.floor(Math.random() * chars.length));
+			}
+			return result;
+		}
+
+		// Panggil fungsi untuk tes
+		// savePray();
+		document.addEventListener("DOMContentLoaded", async function () {
+			getPray();
+		});
 	</script>
 </body>
 
