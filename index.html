@@ -92,6 +92,18 @@
 			background-color: rgb(60 75 108 / 59%);
 		}
 
+		.swal-to-container {
+			/* margin-top: 600px; */
+			border-radius: 12px;
+			min-height: 85px;
+			max-width: 300px;
+			background-color: rgb(60 75 108 / 59%);
+
+			/* width: 300px; */
+			margin: 0 auto;
+			/* padding: 20px; */
+		}
+
 		.pop-up-header-4 {
 			/* "Sacramento", Arial, serif */
 			/* "Brush Script MT", cursive */
@@ -147,6 +159,14 @@
 
 			.pop-up-header-2 {
 				font-size: 2.5em;
+			}
+
+			.swal-to-container {
+				margin-top: 200px;
+				margin-bottom: 150px;
+				border-radius: 12px;
+				min-height: 85px;
+				background-color: rgb(60 75 108 / 59%);
 			}
 		}
 
@@ -645,7 +665,6 @@
 		</div>
 	</div>
 
-
 	<div id="fh5co-services" class="fh5co-section-gray">
 		<div class="container">
 
@@ -679,9 +698,9 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a>
-							Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+						<small class="block">&copy; 2016 Wedding. All Rights Reserved.</small>
+						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">Wedding.com</a>
+						</small>
 					</p>
 					<p>
 					<ul class="fh5co-social-icons">
@@ -743,23 +762,11 @@
 			// imageUrl: `./images/img_bg_1.jpg`, Kepada Bapak/Ibu/Saudara/i
 			html: `<h2 class="pop-up-header-2">Undangan Pernikahan</h2>
 					<h1 class="pop-up-header-1">Tika &amp; Johan</h1>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<div class="to-container">
+				 
+					<div class="swal-to-container">
 						<h2 class="montserrat-123">Kepada Bapak/Ibu/Saudara/i : </h2>
 						<h2 class="montserrat-123">`+ getQueryParam("to") + `</h2>
 					</div>
-			<br><br><br><br><br><br><br> 
 			`,
 			confirmButtonText: `BUKA UNDANGAN`,
 			confirmButtonColor: "#F14E95",
@@ -884,11 +891,6 @@
 						for (const key in snapshot.val()) {
 							if (Object.prototype.hasOwnProperty.call(snapshot.val(), key)) {
 								const element = snapshot.val()[key];
-								// 			<div class="row" id="prayParent">
-								// <div class="col-md-12 animate-box">
-								// 	<div class="wrap-testimony">
-								// 		<div class="owl-carousel-fullwidth">
-								// 			<div class="item">
 								htmlItems += `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
 
 							}
