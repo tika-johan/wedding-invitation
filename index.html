@@ -868,7 +868,7 @@
 			prayName.value = "";
 			prayText.value = "";
 
-			var htmlItems = `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/couple-1.jpg" alt="user"></figure><span>` + objPray.name + `</span><blockquote><p>"` + objPray.pray + `"</p></blockquote></div></div>`;
+			var htmlItems = `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + objPray.name + `</span><blockquote><p>"` + objPray.pray + `"</p></blockquote></div></div>`;
 			const prayParent = document.getElementById("prayParent");
 
 			prayParent.innerHTML += htmlItems
