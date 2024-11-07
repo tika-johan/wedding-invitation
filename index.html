@@ -868,6 +868,12 @@
 
 		}
 
+		function getIconLove() {
+			const iconsLove = ["loves1.jpg", "loves2.jpg", "loves3.jpg", "loves4.jpg", "loves5.jpg",];
+			const randomItem = iconsLove[Math.floor(Math.random() * iconsLove.length)];
+			return randomItem
+		}
+
 		// Fungsi untuk mengambil data
 		function getPray() {
 			const dbRef = ref(db, keyPray);
@@ -883,7 +889,7 @@
 								// 	<div class="wrap-testimony">
 								// 		<div class="owl-carousel-fullwidth">
 								// 			<div class="item">
-								htmlItems += `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/couple-1.jpg" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
+								htmlItems += `<div class="item"><div class="testimony-slide active text-center"><figure><img src="images/` + getIconLove() + `" alt="user"></figure><span>` + element.name + `</span><blockquote><p>"` + element.pray + `"</p></blockquote></div></div>`;
 
 							}
 						}
